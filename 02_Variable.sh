@@ -9,6 +9,7 @@
 # System Defined Variables:
 # System Defined variables are also called Environment Variables, are generally Capitalized. We can view all the current environment variables using the printenv command. Some generally used environment variables are: HOME, SHELL, USER, LANG, etc. 
 # We can access system defined variables as well by prefixing the name of the variables with the "$" sign. 
+# We can see all the available System Defined variables in our machine using the 'printenv' command.
 
 echo "Printing System Defined Variables: "
 echo "Username: $USER"
@@ -27,4 +28,5 @@ var1="Chandra Sreas Gop"
 var2='Programming'
 var3=Scripting		# Adding more than one word here with a space in between will give us an error.
 
+echo "Printing User Defined variables"
 echo "$var1 loves $var2 and $var3"
