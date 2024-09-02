@@ -20,13 +20,28 @@ echo "Desktop Environment: $DESKTOP_SESSION"
 
 
 # User-Defined Variables:
-
 # In order to be able to create any type of variable we will have to keep in mind not to use spaces in between the name of the variable, the equal sign '=' and the value of the variable. If we use unnecessary spaces in between the bash interpreter will throw an error which is unlike other programming languages as well, in other programming languages it's recommended to use spaces to make the code more readable however it's different in scripting.
 
 # These are variables of string data type and we can create them by enclosing text within quote and double quote as well. We can also create variables of string type without using any quotes at all but using that method we can create only one word string variables without any space in betweem, if we use spaces in a variable of string type without enclosing them in quotes the bash interpreter will throw an error. 
 var1="Chandra Sreas Gop"
 var2='Programming'
 var3=Scripting		# Adding more than one word here with a space in between will give us an error.
-
 echo "Printing User Defined variables"
 echo "$var1 loves $var2 and $var3"
+
+
+
+# Unsetting variables: 
+# The Unset command directs a shell to delete a variable and i's stored data from list of variables. 
+
+name="Sreas"
+echo "Before Unsetting: $name"
+unset name
+echo "After Unsetting: $name"
+
+
+
+# Read-Only Variables: These type of variables can only be read, i.e. their values cannot be modified later in the script. In order to make a variable read-only we prefix the name of the variable with the 'readonly' keyword.
+readonly pi=3.14159
+echo "Pi: $pi"
+# pi=1231	# Trying to reassing any sort of value in a variable of readonly type will raise an error.
