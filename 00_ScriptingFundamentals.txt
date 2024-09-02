@@ -1,0 +1,49 @@
+Understanding a couple of things are important before getting started with bash scripting. 
+1. Kernel
+2. Shell
+3. Terminal 
+
+
+# Kernel:
+The kernel is the core of a computer's opearting system, with complete control over everything in the system. It manages the following resources of the Linux system:
+* File Management 
+* Process Management
+* I/O Management 
+* Memory Management
+* Device Management
+
+
+
+# Shell:
+A shell is a special user program that provides an interface for the user to use the OS and it's services. Shell accepts human-reable commands from the users and converts them into something which the kernel can understand and work upon. It is a command langauge interpreter that executes commands read from input devices such as keyboards or from files.
+
+Shell is broadly classified into two categories:-
+1. Command Line Shell: Such shell can be accessed by users using a command line interface. A special program called Terminal is provided to type in the human-readable commands such as "cat", "ls", etc. and then it is executed. The result is then displayed on the terminal to the user.
+    
+    Examples of Shells:
+    
+    1. The C shell (denoted as csh): A shell created by Bill Joy at the University of California at Berkeley in 1978. It incorporated features such as
+    aliases and command history. It inclues helpful programming features like built-in arithmetic and C-like expression syntax. 
+
+    2. The Bourne Shell (denoted as sh): Created by Steve Bourne at AT&T Bell Labs in 1979, it is the original UNIX Shell. It is a light weight fast shell. It lacks features for interactive use like the ability to recall previous commands. It also lacks built-in arithmetic and logical expression handling. It is default shell for Solaris OS.
+
+    3. The Korn Shell (denoted as ksh): Written by David Korn at AT&T Bell Labs and released on 1983 the Korn Shell is a superset of the Bourne Shell. So it supports everything in the Bourne Shell. It has interactive features which includes built-in arithmetic and C-like arrays, functions and string-manipulation facilities. It is faster than C shell. It is compatible with script written for C shell.  
+
+    4. GNU Bourne-Again- Shell (denoted as bash): Written by Brian Fox for the GNU Project as a free software replacement for the Bourne Shell and released on 1989. It is compatible to the Bourne Shell and it includes features from both the Korn and Bourne Shell.
+
+    5. T Shell (denoted as tsh): Originally developed for the Plan 9 operating system, but has since been ported to other systems, including Linux, FreeBSD, and macOS. 
+
+    6. Z Shell (denoted as zsh): Created by Paul Falstad in 1990 while he was a student at Princeton University. Z shell is an extended version of the Bourne-Again Shell (bash), with additional features and capabilities.
+    
+
+
+2. Graphical Shell: Graphical Shells provide means for manipulating programs based on the graphical user interface, by allowing for operations such as opening, closing, moving, and resizing windows, as well as switching focus between windows. Windows OS, Mac OS or any linux distributions that ship with a Desktop Environment can be considered to be examples of Graphical Shells. 
+
+
+
+# Terminal:
+A program that provides an interface to the user to access the shell is called a terminal. It basically acts as a gateway to the shells provided by an OS.
+    Examples of Terminals include: gnome-terminal, konsole, kitty, st, etc. 
+
+
+
