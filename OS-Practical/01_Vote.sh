@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Write a program to find out whether a person is eligible to vote or not.
+
 echo -n "Enter your age: "
 read age
 
