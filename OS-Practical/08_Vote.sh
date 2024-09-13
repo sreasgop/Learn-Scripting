@@ -2,8 +2,7 @@
 
 # Write a program to find out whether a person is eligible to vote or not.
 
-echo -n "Enter your age: "
-read age
+read -p $'\nEnter your age: ' age
 
 if [ $age -ge 18 ]
 then
