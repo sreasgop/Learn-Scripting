@@ -46,4 +46,241 @@ A program that provides an interface to the user to access the shell is called a
     Examples of Terminals include: gnome-terminal, konsole, kitty, st, etc. 
 
 
+1. Basic Structure of a Bash Script
+
+A bash script is a plain text file that contains a series of commands. It starts with a shebang line, which tells the system what interpreter to use to run the script.
+
+#!/bin/bash
+# Your script starts here
+
+    #!/bin/bash tells the system to use bash as the interpreter.
+    Comments in bash start with #.
+
+2. Input and Output
+Printing Output:
+
+The echo command is used to print text to the terminal.
+
+echo "Hello, World!"
+
+You can use printf for formatted output, similar to C:
+
+printf "Name: %s, Age: %d\n" "Alice" 30
+
+    %s for strings
+    %d for integers
+    \n for a newline
+
+Taking Input:
+
+You can take input from the user using read.
+
+read -p "Enter your name: " name
+echo "Hello, $name!"
+
+    -p allows you to display a prompt message.
+    The value entered by the user is stored in the variable name.
+
+3. Variables and Data Types
+Defining Variables:
+
+Bash does not require you to declare the type of variable. Everything is treated as a string by default.
+
+name="Alice"
+age=25
+echo "Name: $name, Age: $age"
+
+    No spaces around the = when assigning values.
+    To access the value of a variable, use $ followed by the variable name.
+
+Special Variables:
+
+    $0: The script's name.
+    $1, $2, …: Positional arguments to the script.
+    $?: Exit status of the last command.
+    $$: Process ID of the script.
+    $#: Number of arguments passed.
+
+4. Conditionals (if, elif, else)
+Basic if-else Syntax:
+
+Bash supports conditional statements with if, elif, and else.
+
+if [ $age -gt 18 ]; then
+    echo "You are an adult."
+elif [ $age -eq 18 ]; then
+    echo "You are exactly 18."
+else
+    echo "You are a minor."
+fi
+
+    -eq: Equal
+    -ne: Not equal
+    -lt: Less than
+    -le: Less than or equal to
+    -gt: Greater than
+    -ge: Greater than or equal to
+
+String Comparison:
+
+if [ "$name" == "Alice" ]; then
+    echo "Hello, Alice!"
+fi
+
+    ==: Equal (for strings)
+    !=: Not equal (for strings)
+
+5. Loops
+For Loop:
+
+Iterates over a list of items.
+
+for i in 1 2 3 4 5; do
+    echo "Number: $i"
+done
+
+Or use brace expansion to generate a sequence:
+
+for i in {1..5}; do
+    echo "Number: $i"
+done
+
+While Loop:
+
+Executes as long as a condition is true.
+
+count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    ((count++))  # Increment count
+done
+
+Until Loop:
+
+Runs until the condition becomes true.
+
+count=1
+until [ $count -gt 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done
+
+6. Jump Statements
+
+    break: Exits a loop.
+    continue: Skips to the next iteration of the loop.
+
+for i in {1..10}; do
+    if [ $i -eq 5 ]; then
+        continue  # Skip when i is 5
+    fi
+    echo $i
+done
+
+7. Data Structures
+Strings:
+
+Bash treats all variables as strings by default. You can use double quotes "" for string interpolation and single quotes '' for literal strings.
+
+str="Hello, World"
+echo $str
+
+Arrays:
+
+Arrays in bash are indexed by integers, starting from 0.
+
+arr=("apple" "banana" "cherry")
+echo "${arr[0]}"  # Outputs "apple"
+arr[2]="orange"   # Update the third element
+
+# Iterate through the array
+for i in "${arr[@]}"; do
+    echo $i
+done
+
+    ${arr[@]}: All elements.
+    ${#arr[@]}: Length of the array.
+
+8. Handling Floating Point Numbers
+
+Bash doesn’t support floating-point arithmetic directly. You can use the bc (basic calculator) tool.
+
+result=$(echo "scale=2; 5 / 3" | bc)
+echo "5 / 3 = $result"
+
+    scale=2: Controls the number of decimal places.
+    You can also use awk for floating-point arithmetic.
+
+9. Functions
+
+Bash allows you to define reusable blocks of code in functions.
+
+greet() {
+    echo "Hello, $1!"
+}
+
+greet "Alice"
+
+    $1 is the first argument to the function.
+    Functions are invoked like normal commands.
+
+10. Where and How to Store a Bash Script
+Creating a Script File:
+
+    Write your script in a file, say myscript.sh.
+    Make it executable using:
+
+chmod +x myscript.sh
+
+Running the Script:
+
+To run the script, use:
+
+./myscript.sh
+
+Making a Script Available System-wide:
+
+To make your script accessible from anywhere:
+
+    Move the script to a directory in your PATH, such as /usr/local/bin or $HOME/bin.
+
+    sudo mv myscript.sh /usr/local/bin/
+
+    Ensure /usr/local/bin or $HOME/bin is in your PATH environment variable by adding the following to your .bashrc or .bash_profile:
+
+    export PATH=$PATH:$HOME/bin
+
+    After doing this, you can run the script from anywhere by simply typing myscript.sh.
+
+11. Building Programs Using Bash
+
+Bash can be used to automate many tasks, like file manipulation, data processing, and interacting with external programs.
+Example: A Simple Backup Script
+
+#!/bin/bash
+# Simple backup script
+
+src_dir="$HOME/documents"
+backup_dir="$HOME/backup"
+
+if [ ! -d "$backup_dir" ]; then
+    mkdir -p "$backup_dir"
+fi
+
+cp -r "$src_dir" "$backup_dir"
+echo "Backup complete."
+
+This script:
+
+    Checks if the backup directory exists.
+    Copies the contents of the documents folder into the backup folder.
+
+Summary:
+
+    Basic formatting: Use echo and printf for output, and read for input.
+    Variables: Bash treats everything as strings but allows arithmetic operations with integers.
+    Conditionals and loops: Standard if, for, while, and until constructs are used.
+    Arrays: Simple but limited; no associative arrays (unless you use bash 4+).
+    Floating-point arithmetic: Use external tools like bc.
+    Storing scripts: Place them in a directory in your PATH for global accessibility.
 
