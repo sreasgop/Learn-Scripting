@@ -28,3 +28,14 @@ do
     echo "$num x $i = $(($num * $i))"
 done
 
+
+
+echo -e "\nUsing for loop to extract variables from a list of string separated by spaces: "
+
+str="A quick brown fox jumps over the lazy dog"
+
+for i in $str
+do
+    echo "String: $i"
+done
+
