@@ -9,7 +9,7 @@ second_term=1
 
 new_term=0
 
-echo -n "First $n numbers of Fibonacci Series are: "
+# echo -n "First $n numbers of Fibonacci Series are: "
 
 for((i=0; i<n; i++))
 do
