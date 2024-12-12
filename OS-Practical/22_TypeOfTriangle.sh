@@ -4,7 +4,7 @@ read -p "Enter three sides of the triangle: " a b c
 
 if((a==b && b==c && a==c))
 then
-    echo "Equitaleral Triangle"
+    echo "Equilateral Triangle"
 elif((a==b || b==c || a==c))
 then
     echo "Isosceles Triangle"
